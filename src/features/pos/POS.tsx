@@ -7,19 +7,14 @@ import CustomDropdown from '../../components/CustomDropdown';
 import { 
   PlusIcon, 
   MinusIcon, 
-  TrashIcon, 
   MagnifyingGlassIcon, 
   ShoppingCartIcon, 
   UserIcon, 
-  CreditCardIcon, 
   PrinterIcon, 
-  ArchiveBoxIcon, 
   XCircleIcon,
   ChartBarIcon,
   Squares2X2Icon,
-  ClockIcon,
-  ArrowPathIcon,
-  ShoppingBagIcon
+  ClockIcon
 } from '@heroicons/react/24/outline';
 import {
   Chart as ChartJS,
@@ -34,7 +29,7 @@ import {
   ArcElement,
   Filler
 } from 'chart.js';
-import { Line, Bar, Doughnut } from 'react-chartjs-2';
+import { Line, Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,

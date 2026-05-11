@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import apiClient from '../../api/client';
 import { toast } from 'react-toastify';
-import { PlusIcon, PencilIcon, MagnifyingGlassIcon, CubeIcon, ArchiveBoxIcon, ExclamationTriangleIcon, XCircleIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { PlusIcon, PencilIcon, MagnifyingGlassIcon, CubeIcon, ArchiveBoxIcon, ExclamationTriangleIcon, XCircleIcon } from '@heroicons/react/24/outline';
 import CustomDropdown from '../../components/CustomDropdown';
 import MultiImageUpload from '../../components/MultiImageUpload';
 
@@ -95,13 +95,7 @@ export default function Products() {
     setNewCategoryName('');
   };
 
-  const addImageField = () => setProductImages([...productImages, '']);
-  const removeImageField = (index: number) => setProductImages(productImages.filter((_, i) => i !== index));
-  const updateImageField = (index: number, value: string) => {
-    const newImages = [...productImages];
-    newImages[index] = value;
-    setProductImages(newImages);
-  };
+
 
 
 

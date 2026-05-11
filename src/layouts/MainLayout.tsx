@@ -1,5 +1,5 @@
 import { Outlet, NavLink, useNavigate, useLocation } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { authUtils } from '../utils/auth';
 import apiClient from '../api/client';
@@ -37,12 +37,9 @@ export default function MainLayout() {
 
   const orders = ordersData?.data || [];
 
-  const { data: usersData, isLoading } = useQuery({
-    queryKey: ['users'],
-    queryFn: () => apiClient.get('/user/all-customers', { params: { limit: 1000 } }).then(res => res.data),
-  });
 
-  const users = usersData?.data || [];
+
+
 
   const { data: settings } = useQuery({
     queryKey: ['settings'],
@@ -51,10 +48,10 @@ export default function MainLayout() {
 
   const pendingOrdersCount = orders?.filter((o: any) => o.status === 'pending').length || 0;
 
-  const playNotificationSound = () => {
-    const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
-    audio.play().catch(() => console.log('Sound blocked by browser'));
-  };
+  // const playNotificationSound = () => {
+  //   const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+  //   audio.play().catch(() => console.log('Sound blocked by browser'));
+  // };
 
   const handleLogout = () => {
     authUtils.removeToken();

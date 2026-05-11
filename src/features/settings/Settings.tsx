@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import apiClient from '../../api/client';
 import { toast } from 'react-toastify';
-import { ShieldCheckIcon, AdjustmentsHorizontalIcon, CreditCardIcon, SparklesIcon, TicketIcon } from '@heroicons/react/24/outline';
+import { ShieldCheckIcon, AdjustmentsHorizontalIcon, SparklesIcon, TicketIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import ConfirmationModal from '../../components/ConfirmationModal';
 
@@ -11,7 +11,7 @@ export default function Settings() {
   const queryClient = useQueryClient();
   const [showConfirm, setShowConfirm] = useState(false);
 
-  const { data: settings, isLoading } = useQuery({
+  const { data: settings } = useQuery({
     queryKey: ['settings'],
     queryFn: () => apiClient.get('/settings/').then(res => res.data),
   });

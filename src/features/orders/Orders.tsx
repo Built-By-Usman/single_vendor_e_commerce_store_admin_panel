@@ -8,7 +8,6 @@ import {
   CheckCircleIcon,
   TruckIcon,
   XCircleIcon,
-  ChevronUpDownIcon,
   MagnifyingGlassIcon,
   PrinterIcon
 } from '@heroicons/react/24/outline';

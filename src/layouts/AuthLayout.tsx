@@ -3,7 +3,6 @@ import { ShoppingBagIcon } from '@heroicons/react/24/solid';
 
 export default function AuthLayout() {
   const location = useLocation();
-  const isLogin = location.pathname === '/login';
   const isSignup = location.pathname === '/signup';
   const isOtp = location.pathname === '/verify-otp';
 
