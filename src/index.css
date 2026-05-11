@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  /* Vibrant Green Palette - Premium POS Look */
+  --color-primary: #10b981;         /* Emerald 500 */
+  --color-primary-dark: #059669;    /* Emerald 600 */
+  --color-primary-light: #d1fae5;   /* Emerald 100 */
+  
+  --color-bg-main: #f8fafc;         /* Slate 50 */
+  --color-bg-card: #ffffff;         /* White */
+  
+  --color-text-title: #0f172a;      /* Slate 900 */
+  --color-text-body: #334155;       /* Slate 700 */
+  --color-text-muted: #64748b;      /* Slate 500 */
+  
+  --color-success: #10b981;         /* Emerald 500 */
+  --color-warning: #f59e0b;         /* Amber 500 */
+  --color-error: #ef4444;           /* Red 500 */
+  
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 0.75rem;
+  --border-radius-lg: 1rem;
+  --border-radius-xl: 1.5rem;
+}
+
+@theme {
+  --color-brand-primary: var(--color-primary);
+  --color-brand-primary-dark: var(--color-primary-dark);
+  --color-brand-primary-light: var(--color-primary-light);
+  --color-brand-bg: var(--color-bg-main);
+  --color-brand-card: var(--color-bg-card);
+  --color-brand-title: var(--color-text-title);
+  --color-brand-body: var(--color-text-body);
+  --color-brand-muted: var(--color-text-muted);
+  --color-brand-success: var(--color-success);
+  --color-brand-warning: var(--color-warning);
+  --color-brand-error: var(--color-error);
+}
+
+html, body {
+  background-color: var(--color-bg-main);
+  color: var(--color-text-body);
+  font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Remove blur as requested */
+.backdrop-blur-sm { backdrop-filter: none; }
+.backdrop-blur-md { backdrop-filter: none; }
+.backdrop-blur-lg { backdrop-filter: none; }
+.backdrop-blur-none { backdrop-filter: none; }
+
+#root {
+  height: 100%;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.animate-fade-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
