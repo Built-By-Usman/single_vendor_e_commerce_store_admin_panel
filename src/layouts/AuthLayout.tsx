@@ -33,7 +33,7 @@ export default function AuthLayout() {
             <ShoppingBagIcon className="w-12 h-12 text-white" />
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.2]">
-            Streamline your E-commerce business
+            Streamline your LushLock Store
           </h1>
           <p className="text-lg text-emerald-100/90 font-medium leading-relaxed">
             Manage inventory, process orders, and grow your customer base with our comprehensive admin platform.

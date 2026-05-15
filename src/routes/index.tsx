@@ -6,7 +6,6 @@ import { authUtils } from '../utils/auth';
 
 const Login = lazy(() => import('../features/auth/Login'));
 const Signup = lazy(() => import('../features/auth/Signup'));
-const OtpVerification = lazy(() => import('../features/auth/OtpVerification'));
 const Dashboard = lazy(() => import('../features/dashboard/Dashboard'));
 const Products = lazy(() => import('../features/products/Products'));
 const Categories = lazy(() => import('../features/categories/Categories'));
@@ -38,7 +37,6 @@ export const router = createBrowserRouter([
     children: [
       { path: 'login', element: <Suspense fallback={<LoadingScreen />}><Login /></Suspense> },
       { path: 'signup', element: <Suspense fallback={<LoadingScreen />}><Signup /></Suspense> },
-      { path: 'verify-otp', element: <Suspense fallback={<LoadingScreen />}><OtpVerification /></Suspense> },
     ],
   },
   {

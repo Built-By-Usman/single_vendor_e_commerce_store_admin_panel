@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { authUtils } from '../../utils/auth';
 import apiClient from '../../api/client';
 import { toast } from 'react-toastify';
 import { EnvelopeIcon, LockClosedIcon, UserIcon, BuildingOfficeIcon } from '@heroicons/react/24/outline';
@@ -19,21 +20,28 @@ export default function Signup() {
       organization_id: Yup.string().required('Required'),
     }),
     onSubmit: async (values) => {
-      if (values.organization_id !== 'builtbyusman') {
+      if (values.organization_id !== 'lushlock321') {
         toast.error('Invalid Organization ID. Please contact support.');
         return;
       }
 
       try {
         setLoading(true);
-        await apiClient.post('/auth/create', {
+        const response = await apiClient.post('/auth/create', {
           name: values.name,
           email: values.email,
           password: values.password,
           role: 'admin'
         });
-        toast.success('Signup successful! Please verify your OTP.');
-        navigate('/verify-otp', { state: { email: values.email } });
+
+        if (response.data.access_token) {
+          authUtils.setToken(response.data.access_token);
+          toast.success('Account created successfully!');
+          navigate('/dashboard');
+        } else {
+          toast.success('Signup successful! Please log in.');
+          navigate('/login');
+        }
       } catch (error: any) {
         toast.error(error.response?.data?.detail || 'Signup failed');
       } finally {
@@ -81,7 +89,7 @@ export default function Signup() {
               onBlur={formik.handleBlur}
               value={formik.values.organization_id}
               className={getInputClass('organization_id')}
-              placeholder="e.g. builtbyusman"
+              placeholder="Enter your ID"
             />
           </div>
           {formik.touched.organization_id && formik.errors.organization_id && (
