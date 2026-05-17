@@ -80,6 +80,10 @@ export default function Orders() {
           <div class="receipt">
             <div class="header">
               <h2>COURIER LABEL</h2>
+              <div style="text-align: left; margin: 15px 0; padding: 10px; background: #f8f9fa; border: 1px dashed #ccc; border-radius: 4px; font-size: 13px;">
+                <strong>Sender:</strong> LushLock Store<br>
+                <strong>Contact:</strong> support@lushlock.com
+              </div>
               <p>Order #${order.id}</p>
               <p>${new Date(order.created_at).toLocaleString()}</p>
             </div>
@@ -100,7 +104,12 @@ export default function Orders() {
               `).join('')}
             </div>
             <div class="price">Total: Rs. ${order.total_amount}</div>
-            <div class="footer">Thank you for shopping with us!</div>
+            <div class="footer">
+              Thank you for shopping with us!
+              <div style="margin-top: 20px; font-size: 10px; color: #666; font-style: normal;">
+                Software by BuiltByUsman All Rights Reserved
+              </div>
+            </div>
           </div>
         </body>
       </html>
